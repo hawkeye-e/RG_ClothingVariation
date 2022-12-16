@@ -1,5 +1,5 @@
 # RG_ClothingVariation
-This patch is aim to allow the player to select the clothes regardless of clothes type and choose the default clothes state for the female characters.
+This patch is aim to allow the player to select the clothes regardless of clothes type and choose the default clothes state for the female body characters.
 
 
 ## Features
