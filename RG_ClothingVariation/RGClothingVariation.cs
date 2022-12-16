@@ -11,7 +11,7 @@ namespace RGClothingVariation
     public class RGClothingVariationPlugin : BasePlugin
     {
         public const string PluginName = "RGClothingVariation";
-        public const string GUID = "Hawk.RG.ClothingVariation";
+        public const string GUID = "hawk.RG.ClothingVariation";
         public const string Version = "0.1";
 
         internal static new ManualLogSource Log;
@@ -23,9 +23,11 @@ namespace RGClothingVariation
             RGClothingVariation.Config.Init(this);
 
             if (RGClothingVariation.Config.Enabled)
-            { 
+            {
+                Harmony.CreateAndPatchAll(typeof(PatchInitialize.Hook), GUID);
                 Harmony.CreateAndPatchAll(typeof(CharacterCustom.Hook), GUID);
-                Harmony.CreateAndPatchAll(typeof(ActionScene.Hook), GUID);
+                Harmony.CreateAndPatchAll(typeof(ActionSceneScreen.Hook), GUID);
+                Harmony.CreateAndPatchAll(typeof(HSceneScreen.Hook), GUID);
             }
 
             StateManager.Instance = new StateManager();

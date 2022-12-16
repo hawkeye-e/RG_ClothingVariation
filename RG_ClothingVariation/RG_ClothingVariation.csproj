@@ -77,12 +77,20 @@
       <HintPath>ref\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>ref\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>ref\UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>ref\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>ref\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
@@ -99,12 +107,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionScene\ActionScene.Hook.cs" />
-    <Compile Include="ActionScene\ActionScene.Patches.cs" />
+    <Compile Include="ActionSceneScreen\ActionSceneScreen.Hook.cs" />
+    <Compile Include="ActionSceneScreen\ActionSceneScreen.Patches.cs" />
     <Compile Include="CharacterCustom\CharacterCustom.Hook.cs" />
     <Compile Include="CharacterCustom\CharacterCustom.Patches.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Constant.cs" />
     <Compile Include="Debug.cs" />
+    <Compile Include="HSceneScreen\HSceneScreen.Hook.cs" />
+    <Compile Include="HSceneScreen\HsceneScreen.Patches.cs" />
+    <Compile Include="PatchInitialize\PatchInitialize.Hook.cs" />
+    <Compile Include="PatchInitialize\PatchInitialize.Patches.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
