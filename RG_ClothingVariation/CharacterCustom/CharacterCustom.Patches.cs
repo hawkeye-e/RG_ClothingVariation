@@ -158,7 +158,7 @@ namespace RGClothingVariation.CharacterCustom
                 if (cmp != null)
                 {
                     int clothesType = (int)coordinate.clothes.parts[Constant.ExtraFieldPartNumber].colorInfo[i].layout.x;
-                    
+
                     if (cmp.objOpt01 != null)
                         foreach (var opt in cmp.objOpt01)
                             list.Add(opt.GetInstanceID(), (clothesType, coordinate.clothes.parts[i].hideOpt[0]));
@@ -212,7 +212,7 @@ namespace RGClothingVariation.CharacterCustom
         {
             var sourcePartInfo = cvsCopy.chaCtrl.ChaFile.Coordinate[cvsCopy._ddSrc.Value].clothes.parts;
             var destPartInfo = cvsCopy.chaCtrl.ChaFile.Coordinate[cvsCopy._ddDst.Value].clothes.parts;
-            
+
             if (sourcePartInfo.Length == Constant.ClothesPartCount)
                 return;
             else
@@ -344,7 +344,7 @@ namespace RGClothingVariation.CharacterCustom
             string clothesName = "";
             clothesType = (int)coordinate.clothes.parts[Constant.ExtraFieldPartNumber].colorInfo[slotNumber].layout.x;
             var clothesID = coordinate.clothes.parts[slotNumber].id;
-            
+
             foreach (var info in Manager.Character.Instance.CustomTableData._instance[(int)Chara.ChaListDefine.CategoryNo.fo_top][clothesID])
             {
                 if (info.ID == clothesID)
@@ -594,6 +594,8 @@ namespace RGClothingVariation.CharacterCustom
             {
                 if (!Util.IsCharacterFemaleBody(character)) return;
 
+                if (character.ChaFile.Coordinate[character.FileStatus.coordinateType].clothes.parts.Length == Constant.ClothesPartCount)
+                    return;
 
                 if ((Util.IsGameObjectNameClothesPart(targetObject.name) || Util.IsGameObjectNameClothesState(targetObject.name)))
                 {

@@ -24,7 +24,7 @@ namespace RGClothingVariation.CharacterCustom
         private static void UpdateCustomUIPost(CvsC_Clothes __instance)
         {
             if (!Util.IsCharacterFemaleBody(__instance.chaCtrl)) return;
-
+ 
             Patches.UpdateClothesStateToggleButton(__instance.chaCtrl, __instance.coordinateType, __instance.SNo);
             Patches.UpdateClothesTypeToggle(__instance.chaCtrl, __instance.SNo);
 
@@ -206,5 +206,15 @@ namespace RGClothingVariation.CharacterCustom
             Patches.SetClothesScrollerDisplayText(__instance, _data);
         }
 
+
+        //Apply the changes of the data when load a character
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Chara.ChaControl), nameof(Chara.ChaControl.Reload))]
+        private static void Reload(Chara.ChaControl __instance, bool noChangeClothes, bool noChangeHead, bool noChangeHair, bool noChangeBody, bool forceChange)
+        {
+            if (!StateManager.Instance.IsCharaCustomScreen) return;
+            Util.InitializeCharacterClothesExtraFields(__instance);
+        }
+        
     }
 }
